@@ -17,7 +17,7 @@ var AppRouter = Backbone.Router.extend({
     var collection = new MenuItemCollection();
     collection.fetch();
     ReactDOM.render(
-      React.createElement(MenuContainer),
+      React.createElement(MenuContainer, {collection: collection}),
       document.getElementById('app')
     );
   }
