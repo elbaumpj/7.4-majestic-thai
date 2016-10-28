@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Pad Thai",
+    "price": 12.00,
+    "description": "a new take on the thai classic"
+  },
+  {
+    "name": "Spring Rolls",
+    "price": 13.00,
+    "description": "crisp and refreshing veggies wrapped in rice paper"
+  },
+  {
+    "name": "Curry Chicken",
+    "price": 9.00,
+    "description": "a rich sauce with spices, potatoes, and peas"
+  },
+  {
+    "name": "Wonton Soup",
+    "price": 10.00,
+    "description": "a chicken broth and our house-made wontons"
+  },
+  {
+    "name": "Beef and Broccoli",
+    "price": 14.00,
+    "description": "skirt steak and broccoli from our garden out back, served with rice"
+  },
+  {
+    "name": "Cashew Chicken",
+    "price": 12.50,
+    "description": "sauteed cashew nuts with chicken in a house special sauce"
+  },
+  {
+    "name": "Chicken Satay",
+    "price": 5.00,
+    "description": "our tender, seasoned chicken on pork skewers"
+  },
+  {
+    "name": "Panang Curry",
+    "price": 12.00,
+    "description": "panang curry cooked in coconut milk with bamboo shoots"
+  },
+  {
+    "name": "Phad Phrik Pow",
+    "price": 11.00,
+    "description": "stir-fried meat in coconut milk cooked in smoked chili sauce"
+  },
+  {
+    "name": "Drunk Beef",
+    "price": 11.50,
+    "description": "sauteed beef and basil with Thai chilis in a spicy sauce"
+  }
+]
