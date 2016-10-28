@@ -10,16 +10,22 @@ var MenuItemCollection = require('../models/menuitems').MenuItemCollection;
 
 var MenuComponent = React.createClass({
   mixins: [Backbone.React.Component.mixin],
+  handleItemClick: function(item){
+    console.log(item.get('price')); //potential toJSON();
+  },
   render: function(){
     var collection = this.getCollection();
+    console.log(collection);
     var menuItemsList = collection.map(function(item){
-      return
-      <li className='well' key={message.get('_id') || message.cid}>
+      var handleItemClick = this.handleItemClick.bind(this, item);
+      return(
+      <li className="well" key={item.get('_id') || item.cid}>
         <h3>{item.get('name')}</h3>
         <p>{item.get('description')}</p>
-        <span>{item.get('price')}</span>
+        <a href="#" onClick={handleItemClick}><span>{item.get('price')}</span></a>
       </li>
-    });
+    );
+  }.bind(this));
     return(
       <div>
         <ul>
@@ -32,6 +38,13 @@ var MenuComponent = React.createClass({
 
 var MenuContainer = React.createClass({
   mixins: [Backbone.React.Component.mixin],
+  getDefaultProps: function(){
+    var collection = new MenuItemCollection();
+    collection.fetch();
+    return{
+      collection: collection
+    }
+  },
   render: function() {
     return(
       <MenuComponent />
