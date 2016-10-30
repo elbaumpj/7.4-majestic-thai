@@ -21,7 +21,7 @@ var MenuComponent = React.createClass({
     // console.log(item.get('price')); //potential toJSON();
     var currentMenuItem = item.toJSON();
 
-    this.state.currentOrders.add([currentMenuItem]); //tip from Mady here
+    this.state.currentOrders.add([currentMenuItem]); //tip from Mady/Johnnie here
     this.setState({currentOrders: this.state.currentOrders});
   },
   render: function(){

@@ -9,9 +9,9 @@ var OrderComponent = React.createClass({
   handleSubmit: function(e){
     e.preventDefault();
 
+    //not sure how to get data to post to orders endpoint
 
-
-    // this.props.currentOrders.clear();
+    // this.props.currentOrders.clear(); ??
 
     console.log("order placed");
   },
