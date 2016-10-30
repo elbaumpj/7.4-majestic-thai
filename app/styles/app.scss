@@ -16,6 +16,35 @@ img {
   max-width: 100%;
 }
 
+div {
+  font-family: cursive;
+}
+
+li{
+  list-style: none;
+}
+
+.item {
+  margin: 0 40px;
+}
+
+.cursive-fancy {
+  font-family: 'Cedarville Cursive', cursive;
+}
+
+.cursive {
+  font-family: cursive;
+}
+
+.heading{
+  display: inline-block;
+}
+
+.logo {
+  height: 55px;
+  width: 90px;
+}
+
 #app {
   width: 50%;
 }

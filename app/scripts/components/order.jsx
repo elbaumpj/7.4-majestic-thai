@@ -9,6 +9,11 @@ var OrderComponent = React.createClass({
   handleSubmit: function(e){
     e.preventDefault();
 
+
+
+    // this.props.currentOrders.clear();
+
+    console.log("order placed");
   },
   render: function() {
     var OrderedItems = this.props.currentOrders.map(function(item){
@@ -26,12 +31,12 @@ var OrderComponent = React.createClass({
     return(
       <nav>
         <h4>Your Order</h4>
-        <span>Item</span><span>Price</span>
+        <span className="item">Item</span><span>Price</span>
         <ul>
           {OrderedItems}
         </ul>
-        <span>Subtotal: {subtotal}</span>
-        <button type="submit" onClick="handleSubmit">Place Order</button>
+        <span>Subtotal: {subtotal}</span><br/>
+        <button type="submit" onClick={this.handleSubmit}>Place Order</button>
       </nav>
     );
   }

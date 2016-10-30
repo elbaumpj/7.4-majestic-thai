@@ -21,12 +21,11 @@ var MenuComponent = React.createClass({
     // console.log(item.get('price')); //potential toJSON();
     var currentMenuItem = item.toJSON();
 
-    this.state.currentOrders.add([currentMenuItem]); //tip from Mady here 
+    this.state.currentOrders.add([currentMenuItem]); //tip from Mady here
     this.setState({currentOrders: this.state.currentOrders});
   },
   render: function(){
     var collection = this.getCollection();
-    console.log(collection);
     var menuItemsList = collection.map(function(item){
       var handleItemClick = this.handleItemClick.bind(this, item);
       return(
@@ -36,7 +35,7 @@ var MenuComponent = React.createClass({
         <a href="#" onClick={handleItemClick}><span>{item.get('price')}</span></a>
       </li>
     );
-  }.bind(this));
+  }.bind(this)); //help from Mady on the bind
     return(
       <div>
         <div className="col-md-8">
