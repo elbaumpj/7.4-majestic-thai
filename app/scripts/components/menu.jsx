@@ -14,16 +14,15 @@ var MenuComponent = React.createClass({
   getInitialState: function() {
     var currentOrders = new OrderCollection();
     return {
-      curentOrders: currentOrders
+      currentOrders: currentOrders
     }
   },
   handleItemClick: function(item){
-    console.log(item.get('price')); //potential toJSON();
+    // console.log(item.get('price')); //potential toJSON();
     var currentMenuItem = item.toJSON();
 
-    this.state.currentOrders([currentMenuItem]);
+    this.state.currentOrders.add([currentMenuItem]); //tip from Mady here 
     this.setState({currentOrders: this.state.currentOrders});
-
   },
   render: function(){
     var collection = this.getCollection();
@@ -46,7 +45,7 @@ var MenuComponent = React.createClass({
           </ul>
         </div>
         <div className="col-md-4">
-          <Orders />
+          <Orders currentOrders={this.state.currentOrders} />
         </div>
       </div>
     );
@@ -64,7 +63,7 @@ var MenuContainer = React.createClass({
   },
   render: function() {
     return(
-      <MenuComponent currentOrders = {this.state.currentOrders} />
+      <MenuComponent  />
     );
   }
 });
