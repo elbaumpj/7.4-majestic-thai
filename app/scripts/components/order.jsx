@@ -12,18 +12,17 @@ var OrderComponent = React.createClass({
   },
   render: function() {
     var OrderedItems = this.props.currentOrders.map(function(item){
-      var itemName = item.get('name');
       var itemPrice = item.get('price');
+      var itemName = item.get('name');
       return(
-        <div key={item._id}>
-          <li>{itemName}</li>
-          <li>{itemPrice}</li>
+        <div key={item.cid}>
+          <span>{itemName}</span><span> {itemPrice}</span>
         </div>
       )
-      var subtotal = this.props.currentOrders.reduce(function(previous, current){
-        previous+=item.get('price');
-      }, 0)
     });
+    var subtotal = this.props.currentOrders.reduce(function(previous, current){
+      return previous+=current.get('price');
+    }, 0)
     return(
       <nav>
         <h4>Your Order</h4>
@@ -31,7 +30,7 @@ var OrderComponent = React.createClass({
         <ul>
           {OrderedItems}
         </ul>
-        <span>Subtotal:</span><span>{subtotal}</span>
+        <span>Subtotal: {subtotal}</span>
         <button type="submit" onClick="handleSubmit">Place Order</button>
       </nav>
     );
