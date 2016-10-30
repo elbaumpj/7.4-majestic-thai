@@ -5,13 +5,24 @@ require('backbone-react-component');
 
 //local imports
 var MenuItemCollection = require('../models/menuitems').MenuItemCollection;
-
+var OrderCollection = require('../models/orders').OrderCollection;
 //components
 
 var MenuComponent = React.createClass({
   mixins: [Backbone.React.Component.mixin],
+  getInitialState: function() {
+    var currentOrders = new OrderCollection();
+    return {
+      curentOrders: currentOrders
+    }
+  },
   handleItemClick: function(item){
     console.log(item.get('price')); //potential toJSON();
+    var currentMenuItem = item.toJSON();
+
+    this.state.currentOrders([currentMenuItem]);
+    this.setState({currentOrders: this.state.currentOrders});
+
   },
   render: function(){
     var collection = this.getCollection();
