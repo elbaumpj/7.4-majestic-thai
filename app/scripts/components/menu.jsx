@@ -6,6 +6,7 @@ require('backbone-react-component');
 //local imports
 var MenuItemCollection = require('../models/menuitems').MenuItemCollection;
 var OrderCollection = require('../models/orders').OrderCollection;
+var Orders = require('./order.jsx').OrderComponent;
 //components
 
 var MenuComponent = React.createClass({
@@ -39,9 +40,14 @@ var MenuComponent = React.createClass({
   }.bind(this));
     return(
       <div>
-        <ul>
-          {menuItemsList}
-        </ul>
+        <div className="col-md-8">
+          <ul>
+            {menuItemsList}
+          </ul>
+        </div>
+        <div className="col-md-4">
+          <Orders />
+        </div>
       </div>
     );
   }
@@ -58,7 +64,7 @@ var MenuContainer = React.createClass({
   },
   render: function() {
     return(
-      <MenuComponent />
+      <MenuComponent currentOrders = {this.state.currentOrders} />
     );
   }
 });
