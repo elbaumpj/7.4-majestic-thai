@@ -3,17 +3,16 @@ var React = require('react');
 var Backbone = require('backbone');
 require('backbone-react-component');
 
+//locals
+var Order = require('../models/orders').Order;
+
 
 var OrderComponent = React.createClass({
   mixins: [Backbone.React.Component.mixin],
   handleSubmit: function(e){
     e.preventDefault();
 
-    //not sure how to get data to post to orders endpoint
-
-    // this.props.currentOrders.clear(); ??
-
-    console.log("order placed");
+    this.props.placeOrder();
   },
   render: function() {
     var OrderedItems = this.props.currentOrders.map(function(item){

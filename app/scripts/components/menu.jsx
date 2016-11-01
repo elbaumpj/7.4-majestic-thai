@@ -7,6 +7,7 @@ require('backbone-react-component');
 var MenuItemCollection = require('../models/menuitems').MenuItemCollection;
 var OrderCollection = require('../models/orders').OrderCollection;
 var Orders = require('./order.jsx').OrderComponent;
+var Order = require('../models/orders').Order;
 //components
 
 var MenuComponent = React.createClass({
@@ -23,6 +24,15 @@ var MenuComponent = React.createClass({
 
     this.state.currentOrders.add([currentMenuItem]); //tip from Mady/Johnnie here
     this.setState({currentOrders: this.state.currentOrders});
+  },
+  placeOrder: function(){
+    var order = new Order();
+    order.set('items', this.state.currentOrders.toJSON());
+    order.save();
+
+    this.state.currentOrders.reset([]);
+    this.setState({currentOrders: this.state.currentOrders});
+    console.log("order placed");
   },
   render: function(){
     var collection = this.getCollection();
@@ -44,7 +54,7 @@ var MenuComponent = React.createClass({
           </ul>
         </div>
         <div className="col-md-4">
-          <Orders currentOrders={this.state.currentOrders} />
+          <Orders currentOrders={this.state.currentOrders} placeOrder={this.placeOrder} />
         </div>
       </div>
     );
